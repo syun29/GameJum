@@ -8,7 +8,7 @@ void MainLoop(void) {
 	//--------------------------------------------------------------
 
 	Base::DrawAll();
-
+	Base::UpdateAll();
 
 
 }
@@ -87,17 +87,17 @@ void Init(void)
 
 	//----–î‘ã-----
 	ADD_RESOURCE("Block_blue", CImage::CreateImage("Block/Block_blue.png"));
-	Base::Add(new Block(CVector2D(300, 300),0));
-
-
-
-
-
-
-
-
-
-
+	ADD_RESOURCE("Block_yellow", CImage::CreateImage("Block/Block_yellow.png"));
+	ADD_RESOURCE("Block_red", CImage::CreateImage("Block/Block_red.png"));
+	ADD_RESOURCE("Block_cyan", CImage::CreateImage("Block/Block_cyan.png"));
+	ADD_RESOURCE("Block_orange", CImage::CreateImage("Block/Block_orange.png"));
+	ADD_RESOURCE("Block_pink", CImage::CreateImage("Block/Block_pink.png"));
+	ADD_RESOURCE("Block_purple", CImage::CreateImage("Block/Block_purple.png"));
+	Base::Add(new Block(CVector2D(300, 300), 0));
+	Base::Add(new Block(CVector2D(300, 420), 0));
+	Base::Add(new Block(CVector2D(300, 540), 0));
+	Base::Add(new Block(CVector2D(420, 420), 0));
+	
 
 	//----‘å’Ë-----
 
