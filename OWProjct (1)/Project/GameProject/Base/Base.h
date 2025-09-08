@@ -53,6 +53,9 @@ public:
     //移動ベクトル
     CVector2D m_vec;
 
+    //回転ベクトル
+    CVector2D m_rot;
+
     //矩形
     CRect   m_rect;
 
