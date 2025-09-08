@@ -1,5 +1,6 @@
 #include "Base/Base.h"
 #include "Game/Block.h"
+#include "Game/Block_Gray.h"
 
 
 void MainLoop(void) {
@@ -14,7 +15,7 @@ void MainLoop(void) {
 
 	Base::DrawAll();
 	Base::UpdateAll();
-
+	
 
 }
 
@@ -118,7 +119,8 @@ void Init(void)
 
 	//----òaêÚ-----
 	ADD_RESOURCE("block_gray", CImage::CreateImage("Block/block_gray.png"));
-	//Base::Add(new Block());
+	Base::Add(new Block_Gray(CVector2D(1500, 200)));
+	
 
 
 
