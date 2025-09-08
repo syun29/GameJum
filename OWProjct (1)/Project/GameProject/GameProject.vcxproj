@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Base\Base.h" />
     <ClInclude Include="Global.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Base\Base.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
