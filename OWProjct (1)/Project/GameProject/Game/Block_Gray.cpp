@@ -16,7 +16,7 @@ void Block_Gray::Update()
 		}
 	}
 	if (m_cnt++ >= 120) {
-		m_pos.x -= 60;
+		m_pos.x -= rand()%30+30;
 		m_cnt = 0;
 	}
 }

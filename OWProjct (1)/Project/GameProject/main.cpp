@@ -119,7 +119,10 @@ void Init(void)
 
 	//----òaêÚ-----
 	ADD_RESOURCE("block_gray", CImage::CreateImage("Block/block_gray.png"));
-	Base::Add(new Block_Gray(CVector2D(1500, 200)));
+	for (int i = 0;i < 3;i++) {
+		Base::Add(new Block_Gray(CVector2D(1500, 200)));
+	}
+	
 	
 
 
