@@ -12,6 +12,7 @@ void MainLoop(void) {
 	Base::CollisionAll();
 	Base::DrawAll();
 
+	Base::DrawAll();
 
 
 
@@ -90,8 +91,8 @@ void Init(void)
 	//-----------------------------------------------------
 
 	//----矢代-----
-
-
+	ADD_RESOURCE("Block_blue", CImage::CreateImage("Block/Block_blue.png"));
+	Base::Add(new Block(CVector2D(300, 300),0));
 
 
 
@@ -236,8 +237,8 @@ int __main(int* argcp, char** argv) {
 	GL::hWnd = WindowFromDC(glDc);
 	
 	//前面ボーダー無し
-	//SetWindowLong(GL::hWnd, GWL_STYLE, WS_POPUP);
-	//SetWindowPos(GL::hWnd, HWND_TOP, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, SWP_SHOWWINDOW);
+	SetWindowLong(GL::hWnd, GWL_STYLE, WS_POPUP);
+	SetWindowPos(GL::hWnd, HWND_TOP, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, SWP_SHOWWINDOW);
 	Init();
 
 
