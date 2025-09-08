@@ -7,6 +7,7 @@ private:
 	CImage m_img[7];
 	int m_block_data[4][4];
 	int m_type;
+	float m_ang;
 public:
 	Block(const CVector2D& pos, int type,int dataindex);
 	void Update()override;
