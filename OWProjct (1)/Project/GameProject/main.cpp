@@ -98,10 +98,8 @@ void Init(void)
 	ADD_RESOURCE("Block_orange", CImage::CreateImage("Block/Block_orange.png"));
 	ADD_RESOURCE("Block_pink", CImage::CreateImage("Block/Block_pink.png"));
 	ADD_RESOURCE("Block_purple", CImage::CreateImage("Block/Block_purple.png"));
-	Base::Add(new Block(CVector2D(300, 300), 0));
-	Base::Add(new Block(CVector2D(300, 420), 0));
-	Base::Add(new Block(CVector2D(300, 540), 0));
-	Base::Add(new Block(CVector2D(420, 420), 0));
+	Base::Add(new Block(CVector2D(300, 300), 3,0));
+	
 	
 
 	//----大塚-----
@@ -120,7 +118,7 @@ void Init(void)
 
 	//----和泉-----
 	ADD_RESOURCE("block_gray", CImage::CreateImage("Block/block_gray.png"));
-	Base::Add(new Block());
+	//Base::Add(new Block());
 
 
 
@@ -237,8 +235,8 @@ int __main(int* argcp, char** argv) {
 	GL::hWnd = WindowFromDC(glDc);
 	
 	//前面ボーダー無し
-	SetWindowLong(GL::hWnd, GWL_STYLE, WS_POPUP);
-	SetWindowPos(GL::hWnd, HWND_TOP, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, SWP_SHOWWINDOW);
+	//SetWindowLong(GL::hWnd, GWL_STYLE, WS_POPUP);
+	//SetWindowPos(GL::hWnd, HWND_TOP, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, SWP_SHOWWINDOW);
 	Init();
 
 

@@ -4,7 +4,7 @@
 /// </summary>
 enum {
     eType_Field,
-    eType_Block,
+    //eType_Block,
     eType_Door,
     eType_Block,
     eType_Player,
