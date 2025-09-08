@@ -29,6 +29,7 @@ TexAnimData _anim_data[]{
 	ANIMDATA(_anim_idle),
 };
 Player::Player(const CVector2D& pos)
+	:Base(eType_Player)
 {
 }
 

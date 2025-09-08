@@ -98,7 +98,7 @@ void Init(void)
 	ADD_RESOURCE("Block_orange", CImage::CreateImage("Block/Block_orange.png"));
 	ADD_RESOURCE("Block_pink", CImage::CreateImage("Block/Block_pink.png"));
 	ADD_RESOURCE("Block_purple", CImage::CreateImage("Block/Block_purple.png"));
-	Base::Add(new Block(CVector2D(300, 300), 3,0));
+	Base::Add(new Block(CVector2D(300, 300), 3,4));
 	
 	
 
