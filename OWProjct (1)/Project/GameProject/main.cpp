@@ -1,11 +1,16 @@
-
 #include "Base/Base.h"
 #include "Game/Block.h"
+
+
 void MainLoop(void) {
 	//--------------------------------------------------------------
 	//ƒQ[ƒ€’†‚Ì“®‚«‚Í‚±‚±‚É‘‚­
 	//ƒQ[ƒ€’†‚Í‚±‚ÌŠÖ”_‚ğ1•bŠÔ‚É60‰ñŒÄ‚Ño‚µ‚Ä‚¢‚é
 	//--------------------------------------------------------------
+	Base::CheckKillAll();
+	Base::UpdateAll();
+	Base::CollisionAll();
+	Base::DrawAll();
 
 	Base::DrawAll();
 	Base::UpdateAll();
@@ -114,8 +119,8 @@ void Init(void)
 
 
 	//----˜aò-----
-
-
+	ADD_RESOURCE("block_gray", CImage::CreateImage("Block/block_gray.png"));
+	Base::Add(new Block());
 
 
 

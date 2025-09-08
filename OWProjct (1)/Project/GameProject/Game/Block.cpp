@@ -31,3 +31,4 @@ void Block::Draw()
 void Block::Collision(Base* b)
 {
 }
+

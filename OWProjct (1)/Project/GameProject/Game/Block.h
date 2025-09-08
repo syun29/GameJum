@@ -9,6 +9,4 @@ private:
 public:
 	Block(const CVector2D& pos,int type);
 	void Update()override;
-	void Draw()override;
-	void Collision(Base* b)override;
-};
+	void 
