@@ -8,9 +8,11 @@ private:
 	int m_block_data[4][4];
 	int m_type;
 	float m_ang;
+	int m_rotcnt;
 public:
-	Block(const CVector2D& pos, int type,int dataindex);
+	Block(const CVector2D& pos,int dataindex);
 	void Update()override;
 	void Draw()override;
+	void Rotation();
 	void Collision(Base* b)override;
 };

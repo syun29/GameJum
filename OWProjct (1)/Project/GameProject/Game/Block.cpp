@@ -53,9 +53,10 @@ int block_data[7][4][4] = {
 	},
 
 };
-Block::Block(const CVector2D& pos,int type,int dataindex)
+Block::Block(const CVector2D& pos,int dataindex)
 	: Base(eType_Block)
 	,m_ang(DtoR(0.0f))
+	,m_rotcnt(0)
 {
 	m_img[0] = COPY_RESOURCE("Block_blue", CImage);
 	m_img[1] = COPY_RESOURCE("Block_yellow", CImage);
@@ -67,7 +68,8 @@ Block::Block(const CVector2D& pos,int type,int dataindex)
 	memcpy(m_block_data, block_data[dataindex], sizeof(int) * 4 * 4);
 	m_vec = (CVector2D(0, 0));
 	m_pos = pos;
-	m_type = type;
+	m_rect = CRect(-30, -60, 30, 0);
+	m_type = dataindex;
 	
 }
 
@@ -75,9 +77,17 @@ void Block::Update()
 {
 	if (PUSH(CInput::eButton5))
 	{
-		m_ang += DtoR(90.0f);
+		if (m_rotcnt <= 2) {
+			m_rotcnt += 1;
+		}
+		else {
+			m_rotcnt = 0;
+		}
+		//m_ang += DtoR(15.0f);
 	}
-	m_vec.x += MOVE_SPEED;
+
+	
+	//m_vec.x += MOVE_SPEED;
 	
 	m_pos.x += m_vec.x;
 }
@@ -87,16 +97,69 @@ void Block::Draw()
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
 			if (m_block_data[i][j] == 0)continue;
-			m_img[m_type].SetSize(120, 120);
-			m_img[m_type].SetCenter(60, 60);
+			m_img[m_type].SetSize(60, 60);
+			m_img[m_type].SetCenter(30,60);
 			m_img[m_type].SetAng(m_ang);
-			m_img[m_type].SetPos(m_pos+CVector2D(j*120,i*120));
+			m_img[m_type].SetPos(m_pos + CVector2D(j * 60, i * 60));
 			m_img[m_type].Draw();
+			//DrawRect();
 		}
 	}
 }
 
+void Block::Rotation()
+{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void Block::Collision(Base* b)
 {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 

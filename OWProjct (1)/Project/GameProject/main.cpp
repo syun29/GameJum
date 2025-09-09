@@ -99,7 +99,7 @@ void Init(void)
 	ADD_RESOURCE("Block_orange", CImage::CreateImage("Block/Block_orange.png"));
 	ADD_RESOURCE("Block_pink", CImage::CreateImage("Block/Block_pink.png"));
 	ADD_RESOURCE("Block_purple", CImage::CreateImage("Block/Block_purple.png"));
-	Base::Add(new Block(CVector2D(300, 300), 3,4));
+	Base::Add(new Block(CVector2D(300, 300),4));
 	
 	
 
@@ -121,10 +121,9 @@ void Init(void)
 
 
 	//----òaêÚ-----
+	srand(time(0));
 	ADD_RESOURCE("block_gray", CImage::CreateImage("Block/block_gray.png"));
-	for (int i = 0;i < 3;i++) {
-		Base::Add(new Block_Gray(CVector2D(1500, 200)));
-	}
+	Base::Add(new Block_Gray(CVector2D(1500, 200)));
 	
 	
 
