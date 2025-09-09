@@ -77,17 +77,20 @@ void Block::Update()
 {
 	if (PUSH(CInput::eButton5))
 	{
+		
 		/*if (m_rotcnt <= 2) {
 			m_rotcnt += 1;
 		}
 		else {
 			m_rotcnt = 0;
+		
 		}*/
 		//m_ang += DtoR(15.0f);
 
 		Rotation();
 	}
-	//m_vec.x += MOVE_SPEED;
+	
+	m_vec.x += MOVE_SPEED;
 	
 	m_pos.x += m_vec.x;
 }
@@ -136,9 +139,23 @@ void Block::Rotation()
 
 void Block::Collision(Base* b)
 {
-
-
-
+	switch (b->m_type)
+	{
+	case eType_Block:
+		CVector2D m_gray_pos = b->m_pos;
+		int col = m_gray_pos.x / 60;
+		if (col < 0)col = 0;
+		if (col > 1920 - 1)col = 1920 - 1;
+		int row = m_gray_pos.y / 60;
+		if (row < 0)row = 0;
+		if (row > 1080 - 1)row = 1080 - 1;
+		if (row != 0 && col != 0) {
+			m_vec.x = 0;
+		}
+		break;
+	}
+	
+	
 
 
 

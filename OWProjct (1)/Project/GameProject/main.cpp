@@ -2,8 +2,7 @@
 #include "Game/Block.h"
 #include "Game/Block_Gray.h"
 #include "Game/Player.h"
-
-
+int m_cnt = 0;
 void MainLoop(void) {
 	//--------------------------------------------------------------
 	//ÉQÅ[ÉÄíÜÇÃìÆÇ´ÇÕÇ±Ç±Ç…èëÇ≠
@@ -15,8 +14,10 @@ void MainLoop(void) {
 	Base::DrawAll();
 
 	
-	
-
+	if (m_cnt++ >= 60) {
+		Base::Add(new Block_Gray(CVector2D(1860, 200)));
+		m_cnt = 0;
+	}
 }
 
 void Init(void)
@@ -123,7 +124,6 @@ void Init(void)
 	//----òaêÚ-----
 	srand(time(0));
 	ADD_RESOURCE("block_gray", CImage::CreateImage("Block/block_gray.png"));
-	Base::Add(new Block_Gray(CVector2D(1500, 200)));
 	
 	
 
