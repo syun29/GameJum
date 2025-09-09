@@ -9,7 +9,6 @@ private:
 	int b;
 	int k;
 	int m_kill_cnt;
-	bool m_kill;
 public:
 	Block_Gray(const CVector2D& pos);
 	void Update();
