@@ -108,7 +108,7 @@ void Init(void)
 	//ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonDeath001-Sheet.png", _anim_data, 128, 128));
 	//ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonHurt001-Sheet.png", _anim_data, 128, 128));
 	ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonIdle001-Sheet.png",_anim_data,128,128));
-	Base::Add(new Player(CVector2D(200, 500)));
+	Base::Add(new Player(CVector2D(200, 500),false));
 
 
 
