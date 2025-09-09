@@ -10,5 +10,6 @@ public:
 	void Update();
 	void Collision(Base* b);
 
-	TexAnimData _anim_data[];
+	
 };
+extern TexAnimData _anim_data[];

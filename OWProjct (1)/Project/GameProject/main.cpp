@@ -1,8 +1,8 @@
 #include "Base/Base.h"
 #include "Game/Block.h"
 #include "Game/Block_Gray.h"
+#include "Game/Player.h"
 int m_cnt = 0;
-
 void MainLoop(void) {
 	//--------------------------------------------------------------
 	//ƒQ[ƒ€’†‚Ì“®‚«‚Í‚±‚±‚É‘‚­
@@ -13,14 +13,11 @@ void MainLoop(void) {
 	Base::CollisionAll();
 	Base::DrawAll();
 
-	Base::DrawAll();
-	Base::UpdateAll();
 	
 	if (m_cnt++ >= 60) {
 		Base::Add(new Block_Gray(CVector2D(1860, 200)));
 		m_cnt = 0;
 	}
-
 }
 
 void Init(void)
@@ -103,13 +100,16 @@ void Init(void)
 	ADD_RESOURCE("Block_orange", CImage::CreateImage("Block/Block_orange.png"));
 	ADD_RESOURCE("Block_pink", CImage::CreateImage("Block/Block_pink.png"));
 	ADD_RESOURCE("Block_purple", CImage::CreateImage("Block/Block_purple.png"));
-	Base::Add(new Block(CVector2D(300, 300), 1,5));
+	Base::Add(new Block(CVector2D(300, 300),4));
 	
 	
 
 	//----‘å’Ë-----
-
-
+	//ADD_RESOURCE("Player", CImage::CreateImage("Charactor/ArchDemonBasicAtk001-Sheet.png", _anim_data, 128, 128));
+	//ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonDeath001-Sheet.png", _anim_data, 128, 128));
+	//ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonHurt001-Sheet.png", _anim_data, 128, 128));
+	ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonIdle001-Sheet.png",_anim_data,128,128));
+	Base::Add(new Player(CVector2D(200, 500)));
 
 
 

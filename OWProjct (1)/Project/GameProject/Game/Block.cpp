@@ -53,7 +53,7 @@ int block_data[7][4][4] = {
 	},
 
 };
-Block::Block(const CVector2D& pos,int type,int dataindex)
+Block::Block(const CVector2D& pos,int dataindex)
 	: Base(eType_Block)
 	,m_ang(DtoR(0.0f))
 	,m_rotcnt(0)
@@ -69,7 +69,7 @@ Block::Block(const CVector2D& pos,int type,int dataindex)
 	m_vec = (CVector2D(0, 0));
 	m_pos = pos;
 	m_rect = CRect(-30, -60, 30, 0);
-	m_type = type;
+	m_type = dataindex;
 	
 }
 
@@ -77,7 +77,7 @@ void Block::Update()
 {
 	if (PUSH(CInput::eButton5))
 	{
-		if (m_rotcnt <= 3) {
+		if (m_rotcnt <= 2) {
 			m_rotcnt += 1;
 		}
 		else {
@@ -86,20 +86,7 @@ void Block::Update()
 		//m_ang += DtoR(15.0f);
 	}
 
-	if (m_rotcnt == 0)
-	{
-		m_block_data[0][1] = 1;
-		m_block_data[1][1] = 1;
-		m_block_data[2][1] = 1;
-		m_block_data[2][2] = 1;
-	}
-	if (m_rotcnt == 1)
-	{
-		m_block_data[0][1] = 1;
-		m_block_data[1][1] = 1;
-		m_block_data[2][1] = 1;
-		m_block_data[2][2] = 1;
-	}
+	
 	m_vec.x += MOVE_SPEED;
 	
 	m_pos.x += m_vec.x;
@@ -120,10 +107,10 @@ void Block::Draw()
 	}
 }
 
+void Block::Rotation()
+{
 
-
-
-
+}
 
 
 
