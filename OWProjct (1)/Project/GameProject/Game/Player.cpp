@@ -84,7 +84,7 @@ void Player::Update()
 		m_pos.x -= move_speed;
 	}
 	if (PUSH(CInput::eButton1)) {
-		Base::Add(new Block(CVector2D(m_pos),4,3));
+		Base::Add(new Block(CVector2D(m_pos),3));
 	}
 }
 
