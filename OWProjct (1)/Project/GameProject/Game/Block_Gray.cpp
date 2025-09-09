@@ -10,10 +10,8 @@ Block_Gray::Block_Gray(const CVector2D& pos):Base(eType_Block)
 
 void Block_Gray::Update()
 {
-	if (b<10) {
-		for (b;b < 9;b++) {
-			m_block[b] = rand()%2;
-		}
+	for (b;b < 9;b++) {
+		m_block[b] = rand() % 2;
 	}
 	if (m_cnt++ >= 120) {
 		m_pos.x -= 60;
@@ -27,6 +25,8 @@ void Block_Gray::Draw()
 		if (m_block[i] == 1) {
 			m_img.SetSize(60, 60);
 			m_img.SetPos(m_pos.x, m_pos.y + 60 * i);
+			//m_rect = CRect(0, 0, 60, 60+60*i);
+			//DrawRect();
 			m_img.Draw();
 		}
 	}

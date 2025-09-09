@@ -100,7 +100,7 @@ void Block::Update()
 		m_block_data[2][1] = 1;
 		m_block_data[2][2] = 1;
 	}
-	//m_vec.x += MOVE_SPEED;
+	m_vec.x += MOVE_SPEED;
 	
 	m_pos.x += m_vec.x;
 }
@@ -149,9 +149,23 @@ void Block::Draw()
 
 void Block::Collision(Base* b)
 {
-
-
-
+	switch (b->m_type)
+	{
+	case eType_Block:
+		CVector2D m_gray_pos = b->m_pos;
+		int col = m_gray_pos.x / 60;
+		if (col < 0)col = 0;
+		if (col > 1920 - 1)col = 1920 - 1;
+		int row = m_gray_pos.y / 60;
+		if (row < 0)row = 0;
+		if (row > 1080 - 1)row = 1080 - 1;
+		if (row != 0 && col != 0) {
+			m_vec.x = 0;
+		}
+		break;
+	}
+	
+	
 
 
 
