@@ -277,42 +277,52 @@ void Block::Collision(Base* b)
 {
 	switch (b->m_type)
 	{
-	case eType_Enemy:
+	case eType_Block_Gray:
 		CVector2D m_g_pos = b->m_pos;
-		CRect m_gray_rect = b->m_rect;
-		CRect r = CRect(
-			m_g_pos.x + m_gray_rect.m_left,
-			m_g_pos.y + m_gray_rect.m_top,
-			m_g_pos.x + m_gray_rect.m_right,
-			m_g_pos.y + m_gray_rect.m_bottom);
-
-		CVector2D rect;
-		rect = CVector2D(r.m_left, r.m_top);
-		CVector2D m_gray_pos = rect;
-		int col = m_gray_pos.x / 60;
-		if (col < 0)col = 0;
-		if (col > 1920 - 1)col = 1920 - 1;
-		int row = m_gray_pos.y / 60;
-		if (row < 0)row = 0;
-		if (row > m_gray_pos.x - 1)row = 1080 - 1;
-		if (row != 0 && col != 0) {
-			m_vec.x = 0;
+		CRect m_g_rect;
+		if (m_pos.y > 200 && m_pos.y <= 260) {
+			m_g_rect = b->m_gray_rect[0];
+		}
+		else if (m_pos.y > 260 && m_pos.y <= 320) {
+			m_g_rect = b->m_gray_rect[1];
+		}
+		else if (m_pos.y > 320 && m_pos.y <= 380) {
+			m_g_rect = b->m_gray_rect[2];
+		}
+		else if (m_pos.y > 380 && m_pos.y <= 440) {
+			m_g_rect = b->m_gray_rect[3];
+		}
+		else if (m_pos.y > 440 && m_pos.y <= 500) {
+			m_g_rect = b->m_gray_rect[4];
+		}
+		else if (m_pos.y > 500 && m_pos.y <= 560) {
+			m_g_rect = b->m_gray_rect[5];
+		}
+		else if (m_pos.y > 560 && m_pos.y <= 620) {
+			m_g_rect = b->m_gray_rect[6];
+		}
+		else if (m_pos.y > 620 && m_pos.y <= 680) {
+			m_g_rect = b->m_gray_rect[7];
+		}
+		else if (m_pos.y > 680 && m_pos.y <= 740) {
+			m_g_rect = b->m_gray_rect[8];
 		}
 		
-		rect=(CVector2D(r.m_left, r.m_bottom));
-		m_gray_pos = rect;
-		col = m_gray_pos.x / 60;
-		if (col < 0)col = 0;
-		if (col > 1920 - 1)col = 1920 - 1;
-		row = m_gray_pos.y / 60;
-		if (row < 0)row = 0;
-		if (row > m_gray_pos.x - 1)row = 1080 - 1;
-		if (row != 0 && col != 0) {
-			m_vec.x = 0;
-		}
-		
-		
+		CRect rect1 = CRect(
+			m_pos.x + m_rect.m_left,
+			m_pos.y + m_rect.m_top,
+			m_pos.x + m_rect.m_right,
+			m_pos.y + m_rect.m_bottom);
 
+		CRect rect2 = CRect(
+			m_g_pos.x + m_g_rect.m_left,
+			m_g_pos.y + m_g_rect.m_top,
+			m_g_pos.x + m_g_rect.m_right,
+			m_g_pos.y + m_g_rect.m_bottom);
+
+		if (rect1.m_left <= rect2.m_right && rect1.m_right >= rect2.m_left &&
+			rect1.m_top <= rect2.m_bottom && rect1.m_bottom >= rect2.m_top)
+			m_pos.x -= MOVE_SPEED;
 		
 	}
 

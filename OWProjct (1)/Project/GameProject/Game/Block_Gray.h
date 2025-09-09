@@ -13,4 +13,5 @@ public:
 	Block_Gray(const CVector2D& pos);
 	void Update();
 	void Draw();
+	void DrawRect(int num);
 };

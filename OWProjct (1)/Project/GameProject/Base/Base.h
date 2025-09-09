@@ -6,6 +6,7 @@ enum {
     eType_Field,
     eType_Title,
     eType_Block,
+    eType_Block_Gray,
     eType_Player,
     eType_Enemy,
     eType_Bullet,
@@ -57,6 +58,8 @@ public:
 
     //‹éŒ`
     CRect   m_rect;
+
+    CRect   m_gray_rect[9];
 
     bool m_kill;
     static std::list<Base*> m_list;

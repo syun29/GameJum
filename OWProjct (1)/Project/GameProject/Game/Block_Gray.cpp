@@ -1,6 +1,6 @@
 #include "Block_Gray.h"
 
-Block_Gray::Block_Gray(const CVector2D& pos):Base(eType_Enemy)
+Block_Gray::Block_Gray(const CVector2D& pos):Base(eType_Block_Gray)
 {
 	m_img = COPY_RESOURCE("block_gray", CImage);
 	m_pos = pos;
@@ -38,7 +38,21 @@ void Block_Gray::Draw()
 		if (m_block[i] == 1) {
 			m_img.SetSize(60, 60);
 			m_img.SetPos(m_pos.x, m_pos.y + 60 * i);
+			m_gray_rect[i] = CRect(0, 60 * i, 60, 60 + 60 * i);
+			//Block_Gray::DrawRect(i);
 			m_img.Draw();
 		}
 	}
+}
+
+void Block_Gray::DrawRect(int num){
+	CRect rect = CRect(
+		m_pos.x + m_gray_rect[num].m_left,
+		m_pos.y + m_gray_rect[num].m_top,
+		m_pos.x + m_gray_rect[num].m_right,
+		m_pos.y + m_gray_rect[num].m_bottom);
+	Utility::DrawQuad(
+		CVector2D(rect.m_left, rect.m_top) - m_scroll,
+		CVector2D(rect.m_width, rect.m_height),
+		CVector4D(1, 0, 0, 0.5f));
 }
