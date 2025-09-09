@@ -87,10 +87,10 @@ void Block::Draw()
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
 			if (m_block_data[i][j] == 0)continue;
-			m_img[m_type].SetSize(120, 120);
+			m_img[m_type].SetSize(60, 60);
 			m_img[m_type].SetCenter(60, 60);
 			m_img[m_type].SetAng(m_ang);
-			m_img[m_type].SetPos(m_pos+CVector2D(j*120,i*120));
+			m_img[m_type].SetPos(m_pos + CVector2D(j * 60, i * 60));
 			m_img[m_type].Draw();
 		}
 	}
