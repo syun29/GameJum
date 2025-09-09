@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Block.h"
+#include "Field.h"
 
 //アニメーション
 static TexAnim _anim_idle[]{
