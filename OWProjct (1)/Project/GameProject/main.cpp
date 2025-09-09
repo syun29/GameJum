@@ -14,7 +14,7 @@ void MainLoop(void) {
 	Base::DrawAll();
 
 	
-	if (m_cnt++ >= 60) {
+	if (m_cnt++ >= 120) {
 		Base::Add(new Block_Gray(CVector2D(1860, 200)));
 		m_cnt = 0;
 	}

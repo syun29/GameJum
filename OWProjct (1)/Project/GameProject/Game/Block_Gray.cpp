@@ -6,16 +6,31 @@ Block_Gray::Block_Gray(const CVector2D& pos):Base(eType_Block)
 	m_pos = pos;
 	m_cnt = 0;
 	b = 0;
+	k = 0;
+	m_kill_cnt = 0;
+	m_kill = false;
 }
 
 void Block_Gray::Update()
 {
 	for (b;b < 9;b++) {
-		m_block[b] = rand() % 2;
+		//m_block[b] = rand() % 2;
+		m_block[b] = 1;
 	}
 	if (m_cnt++ >= 120) {
 		m_pos.x -= 60;
 		m_cnt = 0;
+	}
+	if (m_block[k] == 1) {
+		m_kill_cnt++;
+		k++;
+	}
+	else {
+		m_kill_cnt = 0;
+		k = 0;
+	}
+	if (m_kill_cnt == 9) {
+		SetKill();
 	}
 }
 

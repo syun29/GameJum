@@ -7,6 +7,9 @@ private:
 	int m_cnt;
 	int m_block[9] = { 0,0,0,0,0,0,0,0,0 };
 	int b;
+	int k;
+	int m_kill_cnt;
+	bool m_kill;
 public:
 	Block_Gray(const CVector2D& pos);
 	void Update();
