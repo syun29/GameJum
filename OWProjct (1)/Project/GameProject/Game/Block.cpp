@@ -1,6 +1,6 @@
 #include "Block.h"
 
-#define MOVE_SPEED 0.02f
+#define MOVE_SPEED 0.2f
 
 int block_data[7][4][4][4] = {
 	//OŽš
@@ -221,7 +221,7 @@ void Block::Update()
 	{
 		if (m_rotcnt + 1 == 4)
 		{
-			m_rotcnt = 0;
+			m_rotcnt = -1;
 		}
 		if (m_rotcnt < 4) 
 		{
@@ -231,9 +231,9 @@ void Block::Update()
 		Rotation();
 	}
 
-	m_vec.x += MOVE_SPEED;
+	
 
-	m_pos.x += m_vec.x;
+	m_pos.x += MOVE_SPEED;
 }
 
 void Block::Draw()
