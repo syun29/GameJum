@@ -46,12 +46,13 @@ static TexAnim _anim_hurt[]{
 TexAnimData _anim_data[]{
 	ANIMDATA(_anim_idle),ANIMDATA(_anim_attack),ANIMDATA(_anim_death),ANIMDATA(_anim_hurt),
 };
-Player::Player(const CVector2D& pos)
+Player::Player(const CVector2D& pos, bool flip)
 	:Base(eType_Player)
 {
 	m_img = COPY_RESOURCE("Player", CImage);
 	m_img.ChangeAnimation(0);
 	m_pos = pos;
+	m_flip = flip;
 
 	m_img.SetSize(128* 2,128* 2);
 	m_img.SetCenter(64* 2, 64* 2);
@@ -63,26 +64,39 @@ void Player::Draw()
 {
 	m_img.SetPos(GetScreenPos(m_pos));
 	m_img.Draw();
+	m_img.SetFlipH(m_flip);
 }
 
 void Player::Update()
 {
 	m_img.UpdateAnimation();
-
-	//操作
 	const int move_speed = 4;
-	if (HOLD(CInput::eUp)) {
-		m_pos.y -= move_speed;
+	
+	// ↓ 画面外に出ないようにした
+	if (m_pos.x >= 0) {
+		//左右操作
+		if (HOLD(CInput::eRight)) {
+			m_pos.x += move_speed;
+		}
+		if (HOLD(CInput::eLeft)) {
+			m_pos.x -= move_speed;
+		}
+	}else {
+		m_pos.x += 0.1;
 	}
-	if (HOLD(CInput::eDown)) {
-		m_pos.y += move_speed;
+	// ↓ 画面外に出ないようにした
+	if (m_pos.y >= 0) {
+		//上下操作
+		 if (HOLD(CInput::eUp)) {
+			m_pos.y -= move_speed;
+		 }
+		if (HOLD(CInput::eDown)) {
+			m_pos.y += move_speed;
+		}
+	}else {
+		 m_pos.y += 0.1;
 	}
-	if (HOLD(CInput::eRight)) {
-		m_pos.x += move_speed;
-	}
-	if (HOLD(CInput::eLeft)) {
-		m_pos.x -= move_speed;
-	}
+	//発射
 	if (PUSH(CInput::eButton1)) {
 		Base::Add(new Block(CVector2D(m_pos),3));
 	}
@@ -90,4 +104,13 @@ void Player::Update()
 
 void Player::Collision(Base* b)
 {
+	switch (b->m_type) {
+	case eType_Block:
+		if (Base::CollisionCircle(this, b))
+		{
+			b->SetKill();
+			SetKill();
+		}
+		break;
+	}
 }
