@@ -101,9 +101,9 @@ void Init(void)
 	ADD_RESOURCE("Block_orange", CImage::CreateImage("Block/Block_orange.png"));
 	ADD_RESOURCE("Block_pink", CImage::CreateImage("Block/Block_pink.png"));
 	ADD_RESOURCE("Block_purple", CImage::CreateImage("Block/Block_purple.png"));
-	Base::Add(new Block(CVector2D(300, 300),2));
-	
-	
+	//Base::Add(new Block(CVector2D(300, 300),2));
+	ADD_RESOURCE("Title", CImage::CreateImage("Title/Title.png"));
+	ADD_RESOURCE("Title_Font", CImage::CreateImage("Title/Title.png"));
 
 	//----‘å’Ë-----
 	//ADD_RESOURCE("Player", CImage::CreateImage("Charactor/ArchDemonBasicAtk001-Sheet.png", _anim_data, 128, 128));
