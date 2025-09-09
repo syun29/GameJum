@@ -86,20 +86,24 @@ void Player::Update()
 		m_pos.x += 0.1;
 	}
 	// « ‰æ–ÊŠO‚Éo‚È‚¢‚æ‚¤‚É‚µ‚½
-	if (m_pos.y >= 0) {
+	if (m_pos.y >= 200) {
 		//ã‰º‘€ì
-		 if (HOLD(CInput::eUp)) {
-			m_pos.y -= move_speed;
+		 if (PUSH(CInput::eUp)) {
+			m_pos.y -= 60;
 		 }
-		if (HOLD(CInput::eDown)) {
-			m_pos.y += move_speed;
+		if (PUSH(CInput::eDown)) {
+			m_pos.y += 60;
 		}
 	}else {
-		 m_pos.y += 0.1;
+		 m_pos.y += 60;
+	}
+	if (m_pos.y > 740) {
+		m_pos.y -= 60;
 	}
 	//”­ŽË
 	if (PUSH(CInput::eButton1)) {
-		Base::Add(new Block(CVector2D(m_pos),3));
+		int type = rand() % 6;
+		Base::Add(new Block(CVector2D(m_pos),type));
 	}
 }
 
