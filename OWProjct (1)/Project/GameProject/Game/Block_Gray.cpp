@@ -1,6 +1,6 @@
 #include "Block_Gray.h"
 
-Block_Gray::Block_Gray(const CVector2D& pos):Base(eType_Block)
+Block_Gray::Block_Gray(const CVector2D& pos):Base(eType_Enemy)
 {
 	m_img = COPY_RESOURCE("block_gray", CImage);
 	m_pos = pos;
