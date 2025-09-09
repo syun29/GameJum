@@ -77,16 +77,16 @@ void Block::Update()
 {
 	if (PUSH(CInput::eButton5))
 	{
-		if (m_rotcnt <= 2) {
+		/*if (m_rotcnt <= 2) {
 			m_rotcnt += 1;
 		}
 		else {
 			m_rotcnt = 0;
-		}
+		}*/
 		//m_ang += DtoR(15.0f);
-	}
 
-	
+		Rotation();
+	}
 	//m_vec.x += MOVE_SPEED;
 	
 	m_pos.x += m_vec.x;
@@ -109,30 +109,30 @@ void Block::Draw()
 
 void Block::Rotation()
 {
+	//memset(m_block_data, 0, sizeof(m_block_data));
+	m_block_data[1][3] = 0;
+	m_block_data[2][1] = 0;
+	m_block_data[0][1] = 1;
+	m_block_data[1][1] = 1;
+	//m_block_data[2][1] = 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void Block::Collision(Base* b)
 {
