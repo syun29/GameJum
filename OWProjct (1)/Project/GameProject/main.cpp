@@ -1,6 +1,7 @@
 #include "Base/Base.h"
 #include "Game/Block.h"
 #include "Game/Block_Gray.h"
+#include "Game/Player.h"
 
 
 void MainLoop(void) {
@@ -13,8 +14,7 @@ void MainLoop(void) {
 	Base::CollisionAll();
 	Base::DrawAll();
 
-	Base::DrawAll();
-	Base::UpdateAll();
+	
 	
 
 }
@@ -104,8 +104,11 @@ void Init(void)
 	
 
 	//----‘å’Ë-----
-
-
+	//ADD_RESOURCE("Player", CImage::CreateImage("Charactor/ArchDemonBasicAtk001-Sheet.png", _anim_data, 128, 128));
+	//ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonDeath001-Sheet.png", _anim_data, 128, 128));
+	//ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonHurt001-Sheet.png", _anim_data, 128, 128));
+	ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonIdle001-Sheet.png",_anim_data,128,128));
+	Base::Add(new Player(CVector2D(200, 500)));
 
 
 
