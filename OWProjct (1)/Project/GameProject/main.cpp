@@ -3,6 +3,7 @@
 #include "Game/Block_Gray.h"
 #include "Game/Player.h"
 #include"Game/Field.h"
+#include "Title/Title.h"
 int m_cnt = 0;
 void MainLoop(void) {
 	//--------------------------------------------------------------
@@ -15,10 +16,10 @@ void MainLoop(void) {
 	Base::DrawAll();
 
 	
-	if (m_cnt++ >= 120) {
+	/*if (m_cnt++ >= 120) {
 		Base::Add(new Block_Gray(CVector2D(1860, 200)));
 		m_cnt = 0;
-	}
+	}*/
 }
 
 void Init(void)
@@ -103,17 +104,18 @@ void Init(void)
 	ADD_RESOURCE("Block_purple", CImage::CreateImage("Block/Block_purple.png"));
 	//Base::Add(new Block(CVector2D(300, 300),2));
 	ADD_RESOURCE("Title", CImage::CreateImage("Title/Title.png"));
-	ADD_RESOURCE("Title_Font", CImage::CreateImage("Title/Title.png"));
-
+	ADD_RESOURCE("Title_Font", CImage::CreateImage("Title/Title_Font.png"));
+	ADD_RESOURCE("Start", CImage::CreateImage("Title/START.png"));
+	Base::Add(new Title());
 	//----‘å’Ë-----
 	//ADD_RESOURCE("Player", CImage::CreateImage("Charactor/ArchDemonBasicAtk001-Sheet.png", _anim_data, 128, 128));
 	//ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonDeath001-Sheet.png", _anim_data, 128, 128));
 	//ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonHurt001-Sheet.png", _anim_data, 128, 128));
 	ADD_RESOURCE("Player", CImage::CreateImage("charactor/ArchDemonIdle001-Sheet.png",_anim_data,128,128));
-	Base::Add(new Player(CVector2D(200, 500),false));
+	//Base::Add(new Player(CVector2D(200, 500),false));
 
 	ADD_RESOURCE("Sky", CImage::CreateImage("BackFiled/BackFiled.png"));
-	Base::Add(new Field());
+	//Base::Add(new Field());
 
 
 
