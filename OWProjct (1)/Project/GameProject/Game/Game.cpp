@@ -10,6 +10,8 @@ Game::Game()
 	Base::Add(new Player(CVector2D(200, 500), false));
 	Base::Add(new Field());
 	Base::Add(new Block_Gray(CVector2D(0, 200)));
+
+	SOUND("BackMusic")->Play();
 }
 
 void Game::Update()
