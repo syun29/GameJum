@@ -1,5 +1,5 @@
 #include "Block.h"
-
+#include "Block_Gray.h"
 #define MOVE_SPEED 0.2f
 
 int block_data[7][4][4][4] = {
@@ -228,7 +228,18 @@ void Block::Update()
 		
 		Rotation();
 	}
-
+	if (Block_Gray* b = dynamic_cast<Block_Gray*>(Base::FindObject(eType_Block_Gray)))
+	{
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				int t=b->GetTip(CVector2D(m_pos.x+60*j+61,m_pos.y+60*i));
+				if (t != 0)
+				{
+					SetKill();
+				}
+			}
+		}
+	}
 	
 	m_pos.x += MOVE_SPEED;
 }
