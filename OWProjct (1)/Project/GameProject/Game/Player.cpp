@@ -49,6 +49,7 @@ TexAnimData _anim_data[]{
 };
 Player::Player(const CVector2D& pos, bool flip)
 	:Base(eType_Player)
+	,m_add(true)
 {
 	m_img = COPY_RESOURCE("Player", CImage);
 	m_img.ChangeAnimation(0);
@@ -100,11 +101,15 @@ void Player::Update()
 	if (m_pos.y > 740) {
 		m_pos.y -= 60;
 	}
-	//”­ŽË
-	if (PUSH(CInput::eButton1)) {
+	
+	
+	if (m_add)
+	{
 		int type = rand() % 6;
-		Base::Add(new Block(CVector2D(m_pos),type));
+		Base::Add(new Block(CVector2D(m_pos), type));
+		m_add = false;
 	}
+
 }
 
 void Player::Collision(Base* b)

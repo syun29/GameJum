@@ -1,5 +1,6 @@
 #include "Block.h"
 #include "Block_Gray.h"
+#include "Player.h"
 #define MOVE_SPEED 8.0f
 
 int block_data[7][4][4][4] = {
@@ -198,6 +199,9 @@ Block::Block(const CVector2D& pos, int dataindex)
 	: Base(eType_Block)
 	, m_rotcnt(0)
 	,m_type(dataindex)
+	,m_flag(false)
+	,m_move(false)
+	
 {
 	m_img[0] = COPY_RESOURCE("Block_blue", CImage);
 	m_img[1] = COPY_RESOURCE("Block_yellow", CImage);
@@ -237,6 +241,11 @@ void Block::Update()
 				int t=b->GetTip(CVector2D(m_pos.x+60*j+61,m_pos.y+60*i-b->m_pos.y));
 				if (t != 0)
 				{
+					if (Player* b = dynamic_cast<Player*>(Base::FindObject(eType_Player)))
+					{
+						b->m_add = true;
+					}
+					m_move = false;
 					m_flag = true;
 					SetKill();
 				}
@@ -255,7 +264,23 @@ void Block::Update()
 		}
 	}
 	
-	m_pos.x += MOVE_SPEED;
+	if (PUSH(CInput::eButton1)) {
+		m_move = true;
+	
+	}
+	if (m_move)
+	{
+		m_pos.x += MOVE_SPEED;
+	}
+	else {
+		if (Player* b = dynamic_cast<Player*>(Base::FindObject(eType_Player)))
+		{
+
+			m_pos = b->m_pos;
+
+		}
+	}
+	
 }
 
 void Block::Draw()

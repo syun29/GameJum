@@ -9,7 +9,9 @@ private:
 	int m_type;
 	int m_rotcnt;
 	bool m_flag;
+	
 public:
+	bool m_move;
 	Block(const CVector2D& pos,int dataindex);
 	void Update()override;
 	void Draw()override;
