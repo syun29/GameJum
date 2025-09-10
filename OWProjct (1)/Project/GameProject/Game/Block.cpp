@@ -198,6 +198,7 @@ Block::Block(const CVector2D& pos, int dataindex)
 	: Base(eType_Block)
 	, m_rotcnt(0)
 	,m_type(dataindex)
+	,m_flag(false)
 {
 	m_img[0] = COPY_RESOURCE("Block_blue", CImage);
 	m_img[1] = COPY_RESOURCE("Block_yellow", CImage);
@@ -232,11 +233,19 @@ void Block::Update()
 	{
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				int t=b->GetTip(CVector2D(m_pos.x+60*j+61,m_pos.y+60*i));
+				int t=b->GetTip(CVector2D(m_pos.x+60*j+61,m_pos.y+60*i-b->m_pos.y));
 				if (t != 0)
 				{
+					m_flag = true;
 					SetKill();
 				}
+			}
+
+		}
+		if(m_flag)
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				b->SetTip(m_pos.x * j, m_pos.y * i - b->m_pos.y,1);
 			}
 		}
 	}
