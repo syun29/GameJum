@@ -3,6 +3,7 @@
 
 #define MAP_WIDTH 32
 #define MAP_HEIGHT 9
+#define MAP_TIP_SIZE 60
 
 class Block_Gray :public Base {
 private:
@@ -17,4 +18,7 @@ public:
 	void Update();
 	void Draw();
 	void Add_Block();
+	int GetTip(const CVector2D& pos);
+	int GetTip(int col, int row);
+	void Check_Block();
 };
