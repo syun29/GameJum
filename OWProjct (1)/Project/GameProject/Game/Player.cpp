@@ -77,14 +77,14 @@ void Player::Update()
 	// ↓ 画面外に出ないようにした
 	if (m_pos.x >= 0) {
 		//左右操作
-		if (HOLD(CInput::eRight)) {
-			m_pos.x += move_speed;
+		if (PUSH(CInput::eRight)) {
+			m_pos.x += 60;
 		}
-		if (HOLD(CInput::eLeft)) {
-			m_pos.x -= move_speed;
+		if (PUSH(CInput::eLeft)) {
+			m_pos.x -= 60;
 		}
 	}else {
-		m_pos.x += 0.1;
+		m_pos.x += 60;
 	}
 	// ↓ 画面外に出ないようにした
 	if (m_pos.y >= 200) {
