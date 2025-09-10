@@ -9,7 +9,7 @@ enum {
     eType_Block_Gray,
     eType_Player,
     eType_Enemy,
-    eType_Bullet,
+   // eType_Scene,
     eType_Goal,
     eType_Player_Attack,
     eType_Enemy_Attack,
