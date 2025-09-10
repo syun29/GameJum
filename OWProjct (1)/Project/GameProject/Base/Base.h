@@ -58,14 +58,10 @@ public:
 
     //矩形
     CRect   m_rect;
-
-    CRect   m_gray_rect[9];
-
     bool m_kill;
     static std::list<Base*> m_list;
     //スクロール値
     static CVector2D m_scroll;
-
 public:
     /// <summary>
     /// コンストラクタ

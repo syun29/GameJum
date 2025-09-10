@@ -9,12 +9,13 @@ Game::Game()
 {
 	Base::Add(new Player(CVector2D(200, 500), false));
 	Base::Add(new Field());
+	Base::Add(new Block_Gray(CVector2D(0, 200)));
 }
 
 void Game::Update()
 {
-	if (m_cnt++ >= 120) {
+	/*if (m_cnt++ >= 120) {
 		Base::Add(new Block_Gray(CVector2D(1860, 200)));
 		m_cnt = 0;
-	}
+	}*/
 }
