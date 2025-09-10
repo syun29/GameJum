@@ -85,7 +85,7 @@ void Block_Gray::Check_Block()
 {
 	for (int i = 0;i < 31;i++) {
 		bool kill = true;
-		for (int j = 0;i < 9;j++) {
+		for (int j = 0;j < 9;j++) {
 			if (m_stage_data[i][j] == 0) {
 				kill = false;
 			}
