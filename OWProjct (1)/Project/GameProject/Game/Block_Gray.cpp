@@ -83,5 +83,20 @@ int Block_Gray::GetTip(int col, int row) {
 
 void Block_Gray::Check_Block()
 {
+	for (int i = 0;i < 31;i++) {
+		bool kill = true;
+		for (int j = 0;i < 9;j++) {
+			if (m_stage_data[i][j] == 0) {
+				kill = false;
+			}
+			if (kill) {
+				m_stage_data[i][j] = 0;
+			}
+		}
+	}
+}
 
+void Block_Gray::SetTip(int col, int row, int type)
+{
+	m_stage_data[row][col] = type;
 }

@@ -21,4 +21,5 @@ public:
 	int GetTip(const CVector2D& pos);
 	int GetTip(int col, int row);
 	void Check_Block();
+	void SetTip(int col, int row, int type);
 };
