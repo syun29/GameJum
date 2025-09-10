@@ -232,12 +232,13 @@ void Block::Update()
 	{
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				int t=b->GetTip(CVector2D(m_pos.x+60*j+61,m_pos.y+60*i));
+				int t=b->GetTip(CVector2D(m_pos.x+60*j+61,m_pos.y+60*i-b->m_pos.y));
 				if (t != 0)
 				{
 					SetKill();
 				}
 			}
+
 		}
 	}
 	
