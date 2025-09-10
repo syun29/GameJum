@@ -8,6 +8,8 @@ private:
 	CImage m_font;
 	CImage m_start;
 	CVector2D m_sizecnt;
+	float m_alpha;
+	int m_fontstate;
 public:
 	Title();
 	void Update()override;
