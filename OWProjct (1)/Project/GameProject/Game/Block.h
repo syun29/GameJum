@@ -8,7 +8,6 @@ private:
 	int m_block_data[4][4];
 	int m_type;
 	int m_rotcnt;
-	bool m_flag;
 public:
 	Block(const CVector2D& pos,int dataindex);
 	void Update()override;
