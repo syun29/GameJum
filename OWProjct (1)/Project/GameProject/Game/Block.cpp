@@ -196,7 +196,6 @@ int block_data[7][4][4][4] = {
 };
 Block::Block(const CVector2D& pos, int dataindex)
 	: Base(eType_Block)
-	, m_ang(DtoR(0.0f))
 	, m_rotcnt(0)
 	,m_type(dataindex)
 {
@@ -210,9 +209,8 @@ Block::Block(const CVector2D& pos, int dataindex)
 	memcpy(m_block_data, block_data[dataindex][0], sizeof(int) * 4 * 4);
 	m_vec = (CVector2D(0, 0));
 	m_pos = pos;
-	m_rect = CRect(-30, -60, 30, 0);
-	
 
+	
 }
 
 void Block::Update()
@@ -242,11 +240,10 @@ void Block::Draw()
 		for (int j = 0; j < 4; j++) {
 			if (m_block_data[i][j] == 0)continue;
 			m_img[m_type].SetSize(60, 60);
-			m_img[m_type].SetCenter(30, 60);
-			m_img[m_type].SetAng(m_ang);
+			//m_img[m_type].SetCenter(30, 60);
 			m_img[m_type].SetPos(m_pos + CVector2D(j * 60, i * 60));
 			m_img[m_type].Draw();
-			//DrawRect();
+			DrawRect();
 		}
 	}
 }
@@ -254,23 +251,6 @@ void Block::Draw()
 void Block::Rotation()
 {
 	memcpy(m_block_data, block_data[m_type][m_rotcnt], sizeof(int) * 4 * 4);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 void Block::Collision(Base* b)

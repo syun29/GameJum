@@ -3,6 +3,8 @@
 Title::Title()
 	:Base(eType_Title)
 	,m_sizecnt(0,0)
+	,m_alpha(0)
+	,m_fontstate(0)
 {
 	m_img = COPY_RESOURCE("Title", CImage);
 	m_font = COPY_RESOURCE("Title_Font", CImage);
@@ -28,6 +30,33 @@ void Title::Update()
 
 void Title::Draw()
 {
+	switch (m_fontstate) {
+	case 0:
+		//if (PUSH(CInput::eButton1))
+		m_fontstate++;
+		break;
+	case 1:
+		//ƒÆ‰ÁZ
+		m_alpha += 0.05f;
+		if (m_alpha > DtoR(180)) {
+			m_alpha = 0;
+			m_alpha = 0;
+		}
+		break;
+	}
+	//’Êí‚ÌƒƒS‚Ì•`‰æ
+	m_start.SetSize(450, 96);
+	m_start.SetPos(750, 700);
+
+	m_start.SetColor(1, 1, 1, 1);
+	//m_start.Draw();
+
+	//d‚Ë‚Ä•`‰æ
+
+	//sinƒJ[ƒu
+	m_start.SetColor(1, 1, 1, sin(m_alpha));
+	m_start.Draw();
+
 	m_font.SetSize(450+m_sizecnt.x, 50+m_sizecnt.y);
 	m_font.SetPos(250, 483);
 	m_start.SetPos(750, 700);
