@@ -6,6 +6,7 @@ public:
 	CImage m_img;
 	bool m_flip;
 public:
+	bool m_add;
 	Player(const CVector2D& pos, bool flip);
 	void Draw();
 	void Update();
