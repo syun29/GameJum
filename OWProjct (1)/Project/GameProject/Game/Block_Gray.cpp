@@ -66,3 +66,22 @@ void Block_Gray::Add_Block()
 		m_stage_data[b][31] = rand() % 2;
 	}
 }
+
+int Block_Gray::GetTip(const CVector2D& pos) {
+	int col = pos.x / MAP_TIP_SIZE;
+	if (col < 0)col = 0;
+	if (col > MAP_WIDTH - 1)col = MAP_WIDTH - 1;
+	int row = pos.y / MAP_TIP_SIZE;
+	if (row < 0)row = 0;
+	if (row > MAP_HEIGHT - 1)row = MAP_HEIGHT - 1;
+	return GetTip(col, row);
+}
+
+int Block_Gray::GetTip(int col, int row) {
+	return m_stage_data[row][col];
+}
+
+void Block_Gray::Check_Block()
+{
+
+}
