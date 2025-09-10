@@ -100,3 +100,14 @@ void Block_Gray::SetTip(int col, int row, int type)
 {
 	m_stage_data[row][col] = type;
 }
+
+void Block_Gray::SetTip(const CVector2D& pos, int type)
+{
+	int col = pos.x / MAP_TIP_SIZE;
+	if (col < 0)col = 0;
+	if (col > MAP_WIDTH - 1)col = MAP_WIDTH - 1;
+	int row = pos.y / MAP_TIP_SIZE;
+	if (row < 0)row = 0;
+	if (row > MAP_HEIGHT - 1)row = MAP_HEIGHT - 1;
+	SetTip(col, row, type);
+}
