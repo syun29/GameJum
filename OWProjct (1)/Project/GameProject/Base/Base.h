@@ -65,7 +65,7 @@ public:
     static std::list<Base*> m_list;
     //スクロール値
     static CVector2D m_scroll;
-
+    static int m_block[9];
 public:
     /// <summary>
     /// コンストラクタ
