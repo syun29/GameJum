@@ -1,6 +1,6 @@
 #include "Block.h"
 #include "Block_Gray.h"
-#define MOVE_SPEED 0.2f
+#define MOVE_SPEED 8.0f
 
 int block_data[7][4][4][4] = {
 	//OŽš
@@ -230,15 +230,28 @@ void Block::Update()
 	}
 	if (Block_Gray* b = dynamic_cast<Block_Gray*>(Base::FindObject(eType_Block_Gray)))
 	{
+		m_flag = false;
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
+				if (m_block_data[i][j] == 0)continue;
 				int t=b->GetTip(CVector2D(m_pos.x+60*j+61,m_pos.y+60*i-b->m_pos.y));
 				if (t != 0)
 				{
+					m_flag = true;
 					SetKill();
 				}
 			}
 
+		}
+		if (m_flag) {
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j < 4; j++) {
+					if (m_block_data[i][j] == 0)continue;
+					b->SetTip(CVector2D(m_pos.x + 60 * j + 30, m_pos.y + 60 * i - b->m_pos.y), 1);
+
+				}
+			}
+			b->Check_Block();
 		}
 	}
 	

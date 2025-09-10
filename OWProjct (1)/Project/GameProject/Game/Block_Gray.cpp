@@ -63,8 +63,9 @@ void Block_Gray::Add_Block()
 	}
 	for (b=0;b < 9;b++) {
 
-		m_stage_data[b][31] = rand() % 2;
+		m_stage_data[b][31] = rand()%2;
 	}
+	
 }
 
 int Block_Gray::GetTip(const CVector2D& pos) {
@@ -85,14 +86,14 @@ void Block_Gray::Check_Block()
 {
 	for (int i = 0;i < 31;i++) {
 		bool kill = true;
-		for (int j = 0;i < 9;j++) {
-			if (m_stage_data[i][j] == 0) {
+		for (int j = 0;j < 9;j++) {
+			if (m_stage_data[j][i] == 0) {
 				kill = false;
 			}
 		}
 		if (kill) {
 			for (int k=0;k < 9;k++) {
-				m_stage_data[i][k] = 0;
+				m_stage_data[k][i] = 0;
 			}
 		}
 	}
