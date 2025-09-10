@@ -232,7 +232,6 @@ void Block::Update()
 	}
 
 	
-
 	m_pos.x += MOVE_SPEED;
 }
 
@@ -275,8 +274,9 @@ void Block::Rotation()
 
 void Block::Collision(Base* b)
 {
-	switch (b->m_type)
+	/*switch (b->m_type)
 	{
+	case eType_Block:
 	case eType_Block_Gray:
 		CVector2D m_g_pos = b->m_pos;
 		CRect m_g_rect;
@@ -332,12 +332,16 @@ void Block::Collision(Base* b)
 
 		if (rect1.m_left <= rect2.m_right && rect1.m_right >= rect2.m_left &&
 			rect1.m_top <= rect2.m_bottom && rect1.m_bottom >= rect2.m_top) {
-			m_pos.x -= MOVE_SPEED;
-			if(m_block[i]==0) m_block[i] = 1;
+			if (b->m_block[i] == 0) {
+				b->m_block[i] = 1;
+			}
+			else {
+				m_pos.x -= 60;
+			}
 		}
 			
-			
-	}
+	
+	}*/
 
 
 
