@@ -29,6 +29,9 @@
     <ClInclude Include="UI\UIBlock.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="Title\Result.h">
+      <Filter>Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -58,6 +61,9 @@
     </ClCompile>
     <ClCompile Include="UI\UIBlock.cpp">
       <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Title\Result.cpp">
+      <Filter>Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

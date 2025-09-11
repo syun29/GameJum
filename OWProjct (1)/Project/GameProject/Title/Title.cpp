@@ -7,11 +7,9 @@ Title::Title()
 	,m_fontstate(0)
 	,m_cnt(60*3)
 {
-	m_img = COPY_RESOURCE("Title", CImage);
+	m_img = COPY_RESOURCE("Scene", CImage);
 	m_font = COPY_RESOURCE("Title_Font", CImage);
 	m_start = COPY_RESOURCE("Start", CImage);
-	
-	
 }
 
 void Title::Update()

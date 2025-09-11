@@ -110,7 +110,7 @@ void Init(void)
 	ADD_RESOURCE("Block_pink", CImage::CreateImage("Block/Block_pink.png"));
 	ADD_RESOURCE("Block_purple", CImage::CreateImage("Block/Block_purple.png"));
 	ADD_RESOURCE("Score", CImage::CreateImage("UI/Score.png"));
-	ADD_RESOURCE("Title", CImage::CreateImage("Title/Title.png"));
+	ADD_RESOURCE("Scene", CImage::CreateImage("Title/Title.png"));
 	ADD_RESOURCE("Title_Font", CImage::CreateImage("Title/Title_Font.png"));
 	ADD_RESOURCE("Start", CImage::CreateImage("Title/START.png"));
 	ADD_RESOURCE("O_block", CImage::CreateImage("UI/O_block.png"));

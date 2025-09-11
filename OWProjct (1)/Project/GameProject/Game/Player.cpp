@@ -2,6 +2,7 @@
 #include "Block.h"
 #include "Block_Gray.h"
 #include "Field.h"
+#include "Title/Result.h"
 
 //アニメーション
 static TexAnim _anim_idle[]{
@@ -153,6 +154,7 @@ void Player::Collision(Base* b)
 		if (Base::CollisionCircle(this, b)) 
 		{
 			SetKill();
+			//Base::Add(new Result());
 		}
 		break;
 	}

@@ -1,14 +1,12 @@
 #pragma once
 #include "Base/Base.h"
 
-class Score : public Base
+class Result : public Base
 {
 private:
 	CImage m_img;
-	
+	CImage m_resultscore;
 public:
-	static int m_score;
-	Score();
-	void Update()override;
+	Result();
 	void Draw()override;
 };

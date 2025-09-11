@@ -1,5 +1,5 @@
 #include "Block_Gray.h"
-#include "Title/Title.h"
+#include "Title/Result.h"
 #include "Score.h"
 static int stage_data[MAP_HEIGHT][MAP_WIDTH] = {
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, },
@@ -66,7 +66,7 @@ void Block_Gray::Add_Block()
 		for (b=0;b < 9;b++) {
 			if (m_stage_data[b][0] == 1) {
 				KillAll();
-				Base::Add(new Title());
+				Base::Add(new Result());
 			}
 			m_stage_data[b][i] = m_stage_data[b][i+1];
 
