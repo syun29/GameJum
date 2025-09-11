@@ -1,4 +1,5 @@
 #include "Block_Gray.h"
+#include "Title/Title.h"
 
 static int stage_data[MAP_HEIGHT][MAP_WIDTH] = {
 	{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, },
@@ -18,7 +19,6 @@ Block_Gray::Block_Gray(const CVector2D& pos):Base(eType_Block_Gray)
 	m_pos = pos;
 	m_cnt = 0;
 	b = 0;
-	k = 0;
 	m_kill_cnt = 0;
 	memcpy(m_stage_data, stage_data, sizeof(stage_data));
 }
@@ -56,7 +56,10 @@ void Block_Gray::Add_Block()
 {
 	for (int i = 0;i < 31;i++) {
 		for (b=0;b < 9;b++) {
-
+			if (m_stage_data[b][0] == 1) {
+				KillAll();
+				Base::Add(new Title());
+			}
 			m_stage_data[b][i] = m_stage_data[b][i+1];
 
 		}
@@ -94,6 +97,11 @@ void Block_Gray::Check_Block()
 		if (kill) {
 			for (int k=0;k < 9;k++) {
 				m_stage_data[k][i] = 0;
+			}
+			for (int n = i;0 < n;n--) {
+				for (int m = 0;m < 9;m++) {
+					m_stage_data[m][n] = m_stage_data[m][n-1];
+				}
 			}
 		}
 	}
