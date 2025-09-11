@@ -2,7 +2,7 @@
 #include "Block_Gray.h"
 #include "Player.h"
 #include "Field.h"
-
+#include "Score.h"
 Game::Game()
 	:Base(eType_Scene)
 	,m_cnt(0)
@@ -10,7 +10,7 @@ Game::Game()
 	Base::Add(new Player(CVector2D(200, 500), false));
 	Base::Add(new Field());
 	Base::Add(new Block_Gray(CVector2D(0, 200)));
-
+	Base::Add(new Score());
 	SOUND("BackMusic")->Play();
 }
 
