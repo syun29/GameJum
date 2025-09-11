@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Field.h"
 #include "Score.h"
+#include "UI/UIBlock.h"
 Game::Game()
 	:Base(eType_Scene)
 	,m_cnt(0)
@@ -11,6 +12,8 @@ Game::Game()
 	Base::Add(new Field());
 	Base::Add(new Block_Gray(CVector2D(0, 200)));
 	Base::Add(new Score());
+	Base::Add(new UIBlock());
+
 	SOUND("BackMusic")->Play();
 }
 

@@ -120,6 +120,13 @@ void Init(void)
 	ADD_RESOURCE("L_block", CImage::CreateImage("UI/L_block.png"));
 	ADD_RESOURCE("T_block", CImage::CreateImage("UI/T_block.png"));
 	ADD_RESOURCE("I_block", CImage::CreateImage("UI/I_block.png"));
+	ADD_RESOURCE("1", CImage::CreateImage("UI/1.png"));
+	ADD_RESOURCE("2", CImage::CreateImage("UI/2.png"));
+	ADD_RESOURCE("3", CImage::CreateImage("UI/3.png"));
+	ADD_RESOURCE("4", CImage::CreateImage("UI/4.png"));
+	ADD_RESOURCE("5", CImage::CreateImage("UI/5.png"));
+	ADD_RESOURCE("6", CImage::CreateImage("UI/6.png"));
+	ADD_RESOURCE("7", CImage::CreateImage("UI/7.png"));
 
 
 

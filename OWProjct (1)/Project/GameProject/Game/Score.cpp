@@ -1,5 +1,5 @@
 #include "Score.h"
-
+#include "UI/UIBlock.h"
 Score::Score()
 	:Base(eType_Score)
 	,m_score(0)

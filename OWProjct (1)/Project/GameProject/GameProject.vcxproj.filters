@@ -26,6 +26,9 @@
     <ClInclude Include="Game\Score.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="UI\UIBlock.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -53,6 +56,9 @@
     <ClCompile Include="Game\Score.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="UI\UIBlock.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Base">
@@ -63,6 +69,9 @@
     </Filter>
     <Filter Include="Title">
       <UniqueIdentifier>{e54727aa-b390-4364-bb68-ec4bf6eadc9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{9c0a3422-c974-4610-866d-a033f80ce9d6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
