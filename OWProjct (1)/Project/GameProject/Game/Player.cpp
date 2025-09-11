@@ -66,6 +66,7 @@ void Player::Draw()
 {
 	m_img.SetPos(GetScreenPos(m_pos));
 	m_img.Draw();
+	//DrawRect();
 	m_img.SetFlipH(m_flip);
 }
 
@@ -115,10 +116,9 @@ void Player::Update()
 void Player::Collision(Base* b)
 {
 	switch (b->m_type) {
-	case eType_Block:
-		if (Base::CollisionCircle(this, b))
+	case eType_Block_Gray:
+		if (Base::CollisionCircle(this, b)) 
 		{
-			b->SetKill();
 			SetKill();
 		}
 		break;
