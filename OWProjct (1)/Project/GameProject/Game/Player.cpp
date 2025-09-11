@@ -50,6 +50,7 @@ TexAnimData _anim_data[]{
 Player::Player(const CVector2D& pos, bool flip)
 	:Base(eType_Player)
 	,m_add(true)
+	,m_number(-1)
 {
 	m_img = COPY_RESOURCE("Player", CImage);
 	m_img.ChangeAnimation(0);
@@ -106,9 +107,37 @@ void Player::Update()
 	
 	if (m_add)
 	{
-		int type = rand() % 6;
-		Base::Add(new Block(CVector2D(m_pos), type));
-		m_add = false;
+		if (PUSH(CInput::eButton6)) {
+			Base::Add(new Block(CVector2D(m_pos), 0));
+			m_add = false;
+		}
+		if (PUSH(CInput::eButton7)) {
+			Base::Add(new Block(CVector2D(m_pos), 1));
+			m_add = false;
+		}
+		if (PUSH(CInput::eButton8)) {
+			Base::Add(new Block(CVector2D(m_pos), 2));
+			m_add = false;
+		}
+		if (PUSH(CInput::eButton9)) {
+			Base::Add(new Block(CVector2D(m_pos), 3));
+			m_add = false;
+		}
+		if (PUSH(CInput::eButton10)) {
+			Base::Add(new Block(CVector2D(m_pos), 4));
+			m_add = false;
+		}
+		if (PUSH(CInput::eButton11)) {
+			Base::Add(new Block(CVector2D(m_pos), 5));
+			m_add = false;
+		}
+		if (PUSH(CInput::eButton12)) {
+			Base::Add(new Block(CVector2D(m_pos), 6));
+			m_add = false;
+		}
+		/*int type = rand() % 6;
+		Base::Add(new Block(CVector2D(m_pos), type));*/
+		//m_add = false;
 	}
 
 }
