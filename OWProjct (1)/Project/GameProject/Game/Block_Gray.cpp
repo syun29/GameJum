@@ -74,7 +74,7 @@ void Block_Gray::Add_Block()
 	}
 	for (b=0;b < 9;b++) {
 
-		m_stage_data[b][31] = rand()%2;
+		m_stage_data[b][31] = rand()%6;
 	}
 	
 }
