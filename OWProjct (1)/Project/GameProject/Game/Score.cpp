@@ -9,10 +9,10 @@ Score::Score()
 
 void Score::Update()
 {
-	if (PUSH(CInput::eButton2))
+	/*if (PUSH(CInput::eButton2))
 	{
 		m_score++;
-	}
+	}*/
 }
 
 void Score::Draw()
