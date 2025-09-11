@@ -5,8 +5,9 @@ class Score : public Base
 {
 private:
 	CImage m_img;
-	int m_score;
+	
 public:
+	int m_score;
 	Score();
 	void Update()override;
 	void Draw()override;

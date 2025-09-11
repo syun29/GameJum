@@ -88,7 +88,7 @@ void Player::Update()
 		m_pos.x += 60;
 	}
 	// « ‰æ–ÊŠO‚Éo‚È‚¢‚æ‚¤‚É‚µ‚½
-	if (m_pos.y >= 200) {
+	if (m_pos.y >= 140) {
 		//ã‰º‘€ì
 		 if (PUSH(CInput::eUp)) {
 			m_pos.y -= 60;
@@ -99,7 +99,7 @@ void Player::Update()
 	}else {
 		 m_pos.y += 60;
 	}
-	if (m_pos.y > 740) {
+	if (m_pos.y > 620) {
 		m_pos.y -= 60;
 	}
 	
