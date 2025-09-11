@@ -5,12 +5,13 @@ Result::Result()
 	: Base(eType_Scene)
 {
 	m_img = COPY_RESOURCE("Scene", CImage);
+	m_font = COPY_RESOURCE("Result_Font", CImage);
 	m_resultscore = COPY_RESOURCE("Score", CImage);
 }
 
 void Result::Draw()
 {
-	m_img.Draw();
+		m_img.Draw();
 	
 		int i;
 		int n = Score::m_score;
