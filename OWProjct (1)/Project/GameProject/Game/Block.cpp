@@ -1,7 +1,7 @@
 #include "Block.h"
 #include "Block_Gray.h"
 #include "Player.h"
-#define MOVE_SPEED 8.0f
+#define MOVE_SPEED 12.0f
 
 int block_data[7][4][4][4] = {
 	//OŽš

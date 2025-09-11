@@ -30,8 +30,8 @@ void UIBlock::Draw()
 {
 	for (int i = 0; i < 7; i++)
 	{
-		m_img[i].SetPos(0 +270 * i , 750);
-		m_number[i].SetPos(0 + 300 * i, 1000);
+		m_img[i].SetPos(75 +270 * i , 750);
+		m_number[i].SetPos(100 + 270 * i, 1000);
 		m_img[i].Draw();
 		m_number[i].Draw();
 	}

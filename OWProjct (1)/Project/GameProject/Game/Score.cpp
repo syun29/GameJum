@@ -19,7 +19,7 @@ void Score::Draw()
 {
 	int i;
 	int n = m_score;
-	for (i = 0; i < 3; i++, n /= 10) {
+	for (i = 0; i < 4; i++, n /= 10) {
 		int c = n % 10;
 		m_img.SetRect(c * 114, 0, c * 114 + 114, 114);
 		m_img.SetSize(100, 100);

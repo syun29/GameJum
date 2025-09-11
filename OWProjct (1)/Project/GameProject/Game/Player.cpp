@@ -70,6 +70,9 @@ void Player::Draw()
 	m_img.Draw();
 	//DrawRect();
 	m_img.SetFlipH(m_flip);
+
+	FONT_T()->Draw(10, 100, 1, 1, 1, "  Z   : ”­ŽË");
+	FONT_T()->Draw(10, 150, 1, 1, 1, "SPACE : ‰ñ“]");
 }
 
 void Player::Update()
