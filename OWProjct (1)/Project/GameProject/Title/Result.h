@@ -7,6 +7,9 @@ private:
 	CImage m_img;
 	CImage m_font;
 	CImage m_resultscore;
+
+	int m_alpha;
+	int m_fontstate;
 public:
 	Result();
 	void Update()override;

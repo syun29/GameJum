@@ -129,7 +129,7 @@ void Init(void)
 	ADD_RESOURCE("6", CImage::CreateImage("UI/6.png"));
 	ADD_RESOURCE("7", CImage::CreateImage("UI/7.png"));
 
-
+	SOUND("Shot")->Load("SE/Shot.mp3", 1);
 
 
 

@@ -210,7 +210,9 @@ Block::Block(const CVector2D& pos, int dataindex)
 	m_img[4] = COPY_RESOURCE("Block_orange", CImage);
 	m_img[5] = COPY_RESOURCE("Block_pink", CImage);
 	m_img[6] = COPY_RESOURCE("Block_purple", CImage);
+
 	memcpy(m_block_data, block_data[dataindex][0], sizeof(int) * 4 * 4);
+
 	m_vec = (CVector2D(0, 0));
 	m_pos = pos;
 
@@ -265,6 +267,7 @@ void Block::Update()
 	}
 	
 	if (PUSH(CInput::eButton1)) {
+		SOUND("Shot")->Play();
 		m_move = true;
 	
 	}
