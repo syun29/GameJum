@@ -40,7 +40,6 @@ void Title::Draw()
 		m_alpha += 0.05f;
 		if (m_alpha > DtoR(180)) {
 			m_alpha = 0;
-			m_alpha = 0;
 		}
 		break;
 	}
