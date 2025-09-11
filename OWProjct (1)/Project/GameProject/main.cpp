@@ -117,7 +117,7 @@ void Init(void)
 	ADD_RESOURCE("Sky", CImage::CreateImage("BackFiled/BackFiled.png"));
 	//Base::Add(new Field());
 
-	SOUND("BackMusic")->Load("SE/420_long_BPM108", 1);
+	SOUND("BackMusic")->Load("SE/420_long_BPM108.mp3", 1);
 
 
 
