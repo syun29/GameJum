@@ -9,6 +9,8 @@ class Block_Gray :public Base {
 private:
 	CImage m_img;
 	int m_cnt;
+	int m_time_cnt;
+	int t;
 	int b;
 	int m_kill_cnt;
 	int m_stage_data[MAP_HEIGHT][MAP_WIDTH];

@@ -17,7 +17,9 @@ Block_Gray::Block_Gray(const CVector2D& pos):Base(eType_Block_Gray)
 {
 	m_img = COPY_RESOURCE("block_gray", CImage);
 	m_pos = pos;
-	m_cnt = 0;
+	m_cnt = 150;
+	m_time_cnt = 0;
+	t = 300;
 	b = 0;
 	m_kill_cnt = 0;
 	memcpy(m_stage_data, stage_data, sizeof(stage_data));
@@ -25,8 +27,14 @@ Block_Gray::Block_Gray(const CVector2D& pos):Base(eType_Block_Gray)
 
 void Block_Gray::Update()
 {
-	
-	if (m_cnt++ >= 120) {
+	m_time_cnt++;
+	int time = 300;
+	if (m_time_cnt >= 1800) {
+		t -= 30;
+		m_time_cnt = 0;
+	}
+	time = t;
+	if (m_cnt++ >=time) {
 		Add_Block();
 		m_cnt = 0;
 	}
