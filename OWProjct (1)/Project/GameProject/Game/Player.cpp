@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Block.h"
+#include "Block_Gray.h"
 #include "Field.h"
 
 //アニメーション
@@ -151,5 +152,11 @@ void Player::Collision(Base* b)
 			SetKill();
 		}
 		break;
+	}
+	if (Block_Gray* b = dynamic_cast<Block_Gray*>(Base::FindObject(eType_Block_Gray))) {
+		int t=b->GetTip(CVector2D(m_pos.x,m_pos.y-200));
+		if (t != 0) {
+			m_pos.x -= 60;
+		}
 	}
 }
