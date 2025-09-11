@@ -106,6 +106,25 @@ void Init(void)
 	ADD_RESOURCE("Title", CImage::CreateImage("Title/Title.png"));
 	ADD_RESOURCE("Title_Font", CImage::CreateImage("Title/Title_Font.png"));
 	ADD_RESOURCE("Start", CImage::CreateImage("Title/START.png"));
+	ADD_RESOURCE("O_block", CImage::CreateImage("UI/O_block.png"));
+	ADD_RESOURCE("S_block", CImage::CreateImage("UI/S_block.png"));
+	ADD_RESOURCE("Z_block", CImage::CreateImage("UI/Z_block.png"));
+	ADD_RESOURCE("J_block", CImage::CreateImage("UI/J_block.png"));
+	ADD_RESOURCE("L_block", CImage::CreateImage("UI/L_block.png"));
+	ADD_RESOURCE("T_block", CImage::CreateImage("UI/T_block.png"));
+	ADD_RESOURCE("I_block", CImage::CreateImage("UI/I_block.png"));
+
+
+
+
+
+
+
+
+
+
+
+
 	Base::Add(new Title());
 	//----‘å’Ë-----
 	//ADD_RESOURCE("Player", CImage::CreateImage("Charactor/ArchDemonBasicAtk001-Sheet.png", _anim_data, 128, 128));
