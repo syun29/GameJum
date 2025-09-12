@@ -8,7 +8,7 @@ private:
 	CImage m_font;
 	CImage m_resultscore;
 
-	int m_alpha;
+	float m_alpha;
 	int m_fontstate;
 	int m_cnt;
 public:

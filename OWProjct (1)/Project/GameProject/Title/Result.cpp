@@ -4,7 +4,7 @@
 
 Result::Result()
 	: Base(eType_Scene)
-	, m_alpha(0)
+	, m_alpha(0.0f)
 	, m_fontstate(0)
 	, m_cnt(0)
 {
@@ -21,6 +21,7 @@ void Result::Update()
 	{
 		KillAll();
 		Base::Add(new Title());
+		Score::m_score = 0;
 		m_cnt = 0;
 	}
 }
@@ -28,32 +29,31 @@ void Result::Update()
 void Result::Draw()
 {
 	
-	//switch (m_fontstate) {
-	//case 0:
-	//	//if (PUSH(CInput::eButton1))
-	//	m_fontstate++;
-	//	break;
-	//case 1:
-	//	//É∆â¡éZ
-	//	m_alpha += 0.05f;
-	//	if (m_alpha > DtoR(180)) {
-	//		m_alpha = 0;
-	//	}
-	//	break;
-	//}
+	switch (m_fontstate) {
+	case 0:
+		//if (PUSH(CInput::eButton1))
+		m_fontstate++;
+		break;
+	case 1:
+		//É∆â¡éZ
+		m_alpha += 0.05f;
+		if (m_alpha > DtoR(180)) {
+			m_alpha = 0;
+		}
+		break;
+	}
 
 	m_font.SetSize(450, 96);
 	m_font.SetPos(750, 700);
-
-	//m_font.SetColor(1, 1, 1, 1);
+	
 	//m_font.Draw();
-
+	m_img.Draw();
+	m_font.SetColor(1, 1, 1, 0.8);
+	m_font.Draw();
 	////èdÇÀÇƒï`âÊ
 
 	////sinÉJÅ[Éu
-	//m_font.SetColor(1, 1, 1, sin(m_alpha));
-	//m_font.Draw();
-	m_img.Draw();
+	m_font.SetColor(1, 1, 1, sin(m_alpha));
 	m_font.Draw();
 	//if (Score* s = dynamic_cast<Score*>(Base::FindObject(eType_Score))) {
 		int i;
