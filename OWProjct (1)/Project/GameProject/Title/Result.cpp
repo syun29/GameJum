@@ -38,7 +38,7 @@ void Result::Update()
 		m_blockcnt = 60 * 3;
 	}
 
-	m_drawscore++;
+	m_drawscore += 50;
 	if (m_drawscore > Score::m_score)
 	{
 		m_drawscore = Score::m_score;
