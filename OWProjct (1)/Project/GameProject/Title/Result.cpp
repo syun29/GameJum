@@ -8,7 +8,7 @@ Result::Result()
 	, m_fontstate(0)
 	, m_cnt(0)
 	, m_blockcnt(60*3)
-
+	,m_drawscore(0)
 {
 	m_img = COPY_RESOURCE("Scene", CImage);
 	m_font = COPY_RESOURCE("Result_Font", CImage);
@@ -36,6 +36,12 @@ void Result::Update()
 		Base::Add(new TitleUI(pos, type,90*ang));
 
 		m_blockcnt = 60 * 3;
+	}
+
+	m_drawscore++;
+	if (m_drawscore > Score::m_score)
+	{
+		m_drawscore = Score::m_score;
 	}
 }
 
@@ -70,7 +76,7 @@ void Result::Draw()
 	m_font.Draw();
 	//if (Score* s = dynamic_cast<Score*>(Base::FindObject(eType_Score))) {
 		int i;
-		int n = Score::m_score;
+		int n = m_drawscore;
 		for (i = 0; i < 4; i++, n /= 10) {
 			int c = n % 10;
 			m_resultscore.SetRect(c * 114, 0, c * 114 + 114, 114);

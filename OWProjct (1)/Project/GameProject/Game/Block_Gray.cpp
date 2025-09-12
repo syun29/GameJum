@@ -118,7 +118,7 @@ void Block_Gray::Check_Block()
 		}
 		if (kill) {
 			if (Score* s = dynamic_cast<Score*>(Base::FindObject(eType_Score))) {
-				s->m_score += 100;
+				s->AddScore(100);
 			}
 			for (int k=0;k < 9;k++) {
 				m_stage_data[k][i] = 0;

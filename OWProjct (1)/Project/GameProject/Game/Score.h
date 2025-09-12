@@ -8,6 +8,7 @@ private:
 	
 public:
 	static int m_score;
+	int m_drawscore;
 	Score();
 	void AddScore(int score);
 	void Update()override;

@@ -12,6 +12,7 @@ private:
 	int m_fontstate;
 	int m_cnt;
 	int m_blockcnt;
+	int m_drawscore;
 public:
 	Result();
 	void Update()override;

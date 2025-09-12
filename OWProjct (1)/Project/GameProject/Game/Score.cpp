@@ -5,7 +5,7 @@ int Score::m_score = 0;
 
 Score::Score()
 	:Base(eType_Score)
-	
+	,m_drawscore(0)
 {
 	m_img = COPY_RESOURCE("Score", CImage);
 }
@@ -21,12 +21,17 @@ void Score::Update()
 	{
 		m_score++;
 	}*/
+	m_drawscore++;
+	if (m_drawscore > m_score)
+	{
+		m_drawscore = m_score;
+	}
 }
 
 void Score::Draw()
 {
 	int i;
-	int n = m_score;
+	int n = m_drawscore;
 	for (i = 0; i < 4; i++, n /= 10) {
 		int c = n % 10;
 		m_img.SetRect(c * 114, 0, c * 114 + 114, 114);
