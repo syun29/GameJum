@@ -7,7 +7,7 @@ Result::Result()
 	, m_alpha(0.0f)
 	, m_fontstate(0)
 	, m_cnt(0)
-	, m_blockcnt(60*1)
+	, m_blockcnt(60*3)
 
 {
 	m_img = COPY_RESOURCE("Scene", CImage);
@@ -35,7 +35,7 @@ void Result::Update()
 		int ang = rand() % 4;
 		Base::Add(new TitleUI(pos, type,90*ang));
 
-		m_blockcnt = 60 * 1;
+		m_blockcnt = 60 * 3;
 	}
 }
 
