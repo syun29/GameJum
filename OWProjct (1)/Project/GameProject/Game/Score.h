@@ -7,8 +7,9 @@ private:
 	CImage m_img;
 	
 public:
-	static int m_score;
+	int m_score;
 	Score();
+	void AddScore(int score);
 	void Update()override;
 	void Draw()override;
 };

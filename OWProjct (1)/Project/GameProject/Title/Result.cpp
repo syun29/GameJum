@@ -1,5 +1,6 @@
 #include "Result.h"
 #include "Game/Score.h"
+#include "Title.h"
 
 Result::Result()
 	: Base(eType_Scene)
@@ -13,6 +14,11 @@ Result::Result()
 
 void Result::Update()
 {
+	if (PUSH(CInput::eButton5))
+	{
+		KillAll();
+		Base::Add(new Title());
+	}
 }
 
 void Result::Draw()
@@ -44,15 +50,17 @@ void Result::Draw()
 	//m_font.SetColor(1, 1, 1, sin(m_alpha));
 	//m_font.Draw();
 	m_img.Draw();
+	if (Score* s = dynamic_cast<Score*>(Base::FindObject(eType_Score))) {
 		int i;
-		int n = Score::m_score;
+		int n = s->m_score;
 		for (i = 0; i < 4; i++, n /= 10) {
 			int c = n % 10;
 			m_resultscore.SetRect(c * 114, 0, c * 114 + 114, 114);
-			m_resultscore.SetSize(200 ,200);
+			m_resultscore.SetSize(200, 200);
 			m_resultscore.SetPos(1150 - 200 * i, 200);
 			m_resultscore.Draw();
 		}
+	}
 		m_font.Draw();
 
 }

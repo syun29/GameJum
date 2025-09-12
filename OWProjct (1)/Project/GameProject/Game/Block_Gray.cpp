@@ -68,7 +68,7 @@ void Block_Gray::Add_Block()
 				KillAll();
 				Base::Add(new Result());
 			}
-			m_stage_data[b][i] = m_stage_data[b][i+1];
+			m_stage_data[b][i] = m_stage_data[b][i + 1];
 
 		}
 	}
@@ -104,7 +104,7 @@ void Block_Gray::Check_Block()
 		}
 		if (kill) {
 			if (Score* s = dynamic_cast<Score*>(Base::FindObject(eType_Score))) {
-				s->m_score += 100;
+				s->AddScore(100);
 			}
 			for (int k=0;k < 9;k++) {
 				m_stage_data[k][i] = 0;
