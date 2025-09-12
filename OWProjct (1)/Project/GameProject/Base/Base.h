@@ -11,8 +11,9 @@ enum {
     eType_Enemy,
    // eType_Scene,
     eType_Effect,
-    eType_UI,
     eType_Scene,
+    eType_UI,
+   
     eType_Score,
 };
 //èdóÕâ¡ë¨ìx

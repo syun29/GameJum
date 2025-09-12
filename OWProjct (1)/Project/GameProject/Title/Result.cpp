@@ -7,6 +7,8 @@ Result::Result()
 	, m_alpha(0.0f)
 	, m_fontstate(0)
 	, m_cnt(0)
+	, m_blockcnt(60*1)
+
 {
 	m_img = COPY_RESOURCE("Scene", CImage);
 	m_font = COPY_RESOURCE("Result_Font", CImage);
@@ -23,6 +25,17 @@ void Result::Update()
 		Base::Add(new Title());
 		Score::m_score = 0;
 		m_cnt = 0;
+	}
+
+	m_blockcnt--;
+	if (m_blockcnt <= 0) {
+		CVector2D pos(Utility::Rand(0.0f, 1900.f),
+			Utility::Rand(0.0f, 0.0f));
+		int type = rand() % 6;
+		int ang = rand() % 4;
+		Base::Add(new TitleUI(pos, type,90*ang));
+
+		m_blockcnt = 60 * 1;
 	}
 }
 

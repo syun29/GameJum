@@ -11,6 +11,7 @@ private:
 	float m_alpha;
 	int m_fontstate;
 	int m_cnt;
+	int m_blockcnt;
 public:
 	Result();
 	void Update()override;

@@ -2,10 +2,16 @@
 #include "Game/Game.h"
 Title::Title()
 	:Base(eType_Title)
-	,m_sizecnt(0,0)
+	//,m_sizecnt(0,0)
 	,m_alpha(0)
 	,m_fontstate(0)
 	,m_cnt(60*3)
+
+	, m_move(0.0f)
+	, m_speed(0.006f)
+	, m_movescale(1.5f)
+	, m_width(1050)
+	, m_height(100)
 {
 	m_img = COPY_RESOURCE("Scene", CImage);
 	m_font = COPY_RESOURCE("Title_Font", CImage);
@@ -20,21 +26,22 @@ void Title::Update()
 		CVector2D pos(Utility::Rand(0.0f, 1900.f),
 			Utility::Rand(0.0f, 0.0f));
 		int type = rand() % 6;
-		Base::Add(new TitleUI(pos, type));
+		int ang = rand() % 4;
+		Base::Add(new TitleUI(pos, type,90*ang));
 		
 		m_cnt = 60 * 3;
 	}
 
 
 
-	if (m_sizecnt.x< 1000)
+	/*if (m_sizecnt.x< 1000)
 	{
 		m_sizecnt.x+=10;
 	}
 	if (m_sizecnt.y < 100)
 	{
 		m_sizecnt.y+=1;
-	}
+	}*/
 	if (PUSH(CInput::eButton5))
 	{
 		SetKill();
@@ -70,15 +77,21 @@ void Title::Draw()
 	m_start.SetColor(1, 1, 1, sin(m_alpha));
 	m_start.Draw();
 
-	m_font.SetSize(450+m_sizecnt.x, 50+m_sizecnt.y);
-	m_font.SetPos(250, 483);
+
+	m_move = min(1.0f, m_move + m_speed);
+	m_font.SetRect(0, 0, m_width * m_move, m_height);
+	m_font.SetSize(m_width * m_move * m_movescale, m_height * m_movescale);
+
+
+	//m_font.SetSize(450+m_sizecnt.x, 50+m_sizecnt.y);
+	m_font.SetPos(200, 483);
 	m_start.SetPos(750, 700);
 	m_img.Draw();
 	m_font.Draw();
 	m_start.Draw();
 }
 
-TitleUI::TitleUI(const CVector2D& pos,int type)
+TitleUI::TitleUI(const CVector2D& pos,int type,int ang)
 	: Base(eType_UI)
 	,m_type(type)
 {
@@ -91,6 +104,7 @@ TitleUI::TitleUI(const CVector2D& pos,int type)
 	m_block[6] = COPY_RESOURCE("I_block", CImage);
 
 	m_pos = pos;
+	m_ang = ang;
 }
 
 void TitleUI::Update()
@@ -100,6 +114,7 @@ void TitleUI::Update()
 
 void TitleUI::Draw()
 {
+	m_block[m_type].SetAng(DtoR(m_ang));
 	m_block[m_type].SetPos(m_pos);
 	m_block[m_type].Draw();
 }
