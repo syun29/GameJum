@@ -73,7 +73,8 @@ void Player::Draw()
 	m_img.SetFlipH(m_flip);
 
 	FONT_T()->Draw(10, 100, 1, 1, 1, "  Z   : ”­ŽË");
-	FONT_T()->Draw(10, 150, 1, 1, 1, "SPACE : ‰ñ“]");
+	FONT_T()->Draw(10, 150, 1, 1, 1, "  X :   Á‹Ž");
+	FONT_T()->Draw(10, 200, 1, 1, 1, "SPACE : ‰ñ“]");
 }
 
 void Player::Update()
@@ -140,6 +141,14 @@ void Player::Update()
 			Base::Add(new Block(CVector2D(m_pos), 6));
 			m_add = false;
 		}
+		//if (Block* b = dynamic_cast<Block*>(Base::FindObject(eType_Block)))
+		//{
+		//	//if (b != nullptr) {
+		//		if (PUSH(CInput::eButton2)) {
+		//			b->SetKill();
+		//		}
+		//	//}
+		//}
 		/*int type = rand() % 6;
 		Base::Add(new Block(CVector2D(m_pos), type));*/
 		//m_add = false;

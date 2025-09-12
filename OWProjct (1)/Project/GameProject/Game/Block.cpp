@@ -234,6 +234,14 @@ void Block::Update()
 		
 		Rotation();
 	}
+	if (PUSH(CInput::eButton2)) {
+		SetKill();
+		if (Player* b = dynamic_cast<Player*>(Base::FindObject(eType_Player)))
+		{
+			b->m_add = true;
+		}
+		
+	}
 	if (Block_Gray* b = dynamic_cast<Block_Gray*>(Base::FindObject(eType_Block_Gray)))
 	{
 		m_flag = false;
