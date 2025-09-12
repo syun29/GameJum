@@ -1,7 +1,7 @@
 #include "Score.h"
 #include "UI/UIBlock.h"
 
-//int Score::m_score = 0;
+int Score::m_score = 0;
 
 Score::Score()
 	:Base(eType_Score)

@@ -10,6 +10,7 @@ private:
 
 	int m_alpha;
 	int m_fontstate;
+	int m_cnt;
 public:
 	Result();
 	void Update()override;

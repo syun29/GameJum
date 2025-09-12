@@ -6,6 +6,7 @@ Result::Result()
 	: Base(eType_Scene)
 	, m_alpha(0)
 	, m_fontstate(0)
+	, m_cnt(0)
 {
 	m_img = COPY_RESOURCE("Scene", CImage);
 	m_font = COPY_RESOURCE("Result_Font", CImage);
@@ -14,10 +15,13 @@ Result::Result()
 
 void Result::Update()
 {
-	if (PUSH(CInput::eButton5))
+	
+	m_cnt++;
+	if (PUSH(CInput::eButton5)&&m_cnt>=60)
 	{
 		KillAll();
 		Base::Add(new Title());
+		m_cnt = 0;
 	}
 }
 
@@ -50,9 +54,10 @@ void Result::Draw()
 	//m_font.SetColor(1, 1, 1, sin(m_alpha));
 	//m_font.Draw();
 	m_img.Draw();
-	if (Score* s = dynamic_cast<Score*>(Base::FindObject(eType_Score))) {
+	m_font.Draw();
+	//if (Score* s = dynamic_cast<Score*>(Base::FindObject(eType_Score))) {
 		int i;
-		int n = s->m_score;
+		int n = Score::m_score;
 		for (i = 0; i < 4; i++, n /= 10) {
 			int c = n % 10;
 			m_resultscore.SetRect(c * 114, 0, c * 114 + 114, 114);
@@ -60,7 +65,7 @@ void Result::Draw()
 			m_resultscore.SetPos(1150 - 200 * i, 200);
 			m_resultscore.Draw();
 		}
-	}
-		m_font.Draw();
+	//}
+		
 
 }
