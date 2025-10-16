@@ -52,7 +52,9 @@ TexAnimData _anim_data[]{
 Player::Player(const CVector2D& pos, bool flip)
 	:Base(eType_Player)
 	,m_add(true)
+	,m_isNew(true)
 	,m_number(-1)
+	,m_blockNo(0)
 {
 	m_img = COPY_RESOURCE("Player", CImage);
 	m_img.ChangeAnimation(0);
@@ -63,6 +65,7 @@ Player::Player(const CVector2D& pos, bool flip)
 	m_img.SetCenter(64* 2, 64* 2);
 
 	m_rect = CRect(-64* 2, -64* 2, 64* 2, 64* 2);
+	mp_block = nullptr;
 }
 
 void Player::Draw()
@@ -113,7 +116,7 @@ void Player::Update()
 	
 	if (m_add)
 	{
-		if (PUSH(CInput::eButton6)) {
+		/*if (PUSH(CInput::eButton6)) {
 			Base::Add(new Block(CVector2D(m_pos), 0));
 			m_add = false;
 		}
@@ -140,6 +143,48 @@ void Player::Update()
 		if (PUSH(CInput::eButton12)) {
 			Base::Add(new Block(CVector2D(m_pos), 6));
 			m_add = false;
+		}*/
+		if (PUSH(CInput::eButton5))
+		{
+			
+			if (m_blockNo == 0)
+			{
+				m_blockNo = 6;
+			}
+			else
+			{
+				m_blockNo--;
+			}
+			if (m_isNew)
+			{
+				Base::Add(mp_block=new Block(CVector2D(m_pos), m_blockNo));
+				m_isNew = false;
+			}
+			else
+			{
+				mp_block->Reset(m_blockNo);
+			}
+		}
+		if (PUSH(CInput::eButton7))
+		{
+			
+			if (m_blockNo == 6)
+			{
+				m_blockNo = 0;
+			}
+			else
+			{
+				m_blockNo++;
+			}
+			if (m_isNew)
+			{
+				Base::Add(mp_block = new Block(CVector2D(m_pos), m_blockNo));
+				m_isNew = false;
+			}
+			else
+			{
+				mp_block->Reset(m_blockNo);
+			}
 		}
 		//if (Block* b = dynamic_cast<Block*>(Base::FindObject(eType_Block)))
 		//{

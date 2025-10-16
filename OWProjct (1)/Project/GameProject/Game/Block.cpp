@@ -198,7 +198,6 @@ int block_data[7][4][4][4] = {
 Block::Block(const CVector2D& pos, int dataindex)
 	: Base(eType_Block)
 	, m_rotcnt(0)
-	,m_type(dataindex)
 	,m_flag(false)
 	,m_move(false)
 	
@@ -211,17 +210,22 @@ Block::Block(const CVector2D& pos, int dataindex)
 	m_img[5] = COPY_RESOURCE("Block_pink", CImage);
 	m_img[6] = COPY_RESOURCE("Block_purple", CImage);
 
+	mp_player = dynamic_cast<Player*>(Base::FindObject(eType_Player));
+
+	mp_player->m_blockNo = dataindex;
+
 	memcpy(m_block_data, block_data[dataindex][0], sizeof(int) * 4 * 4);
 
 	m_vec = (CVector2D(0, 0));
 	m_pos = pos;
-
+	
+	
 	
 }
 
 void Block::Update()
 {
-	if (PUSH(CInput::eButton5))
+	/*if (PUSH(CInput::eButton5))
 	{
 		if (m_rotcnt + 1 == 4)
 		{
@@ -233,11 +237,12 @@ void Block::Update()
 		}
 		
 		Rotation();
-	}
+	}*/
 	if (PUSH(CInput::eButton2)) {
 		SetKill();
 		if (Player* b = dynamic_cast<Player*>(Base::FindObject(eType_Player)))
 		{
+			b->m_isNew = true;
 			b->m_add = true;
 		}
 		
@@ -254,6 +259,7 @@ void Block::Update()
 					if (Player* b = dynamic_cast<Player*>(Base::FindObject(eType_Player)))
 					{
 						b->m_add = true;
+						b->m_isNew = true;
 					}
 					m_move = false;
 					m_flag = true;
@@ -299,10 +305,10 @@ void Block::Draw()
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
 			if (m_block_data[i][j] == 0)continue;
-			m_img[m_type].SetSize(60, 60);
+			m_img[mp_player->m_blockNo].SetSize(60, 60);
 			//m_img[m_type].SetCenter(30, 60);
-			m_img[m_type].SetPos(m_pos + CVector2D(j * 60, i * 60));
-			m_img[m_type].Draw();
+			m_img[mp_player->m_blockNo].SetPos(m_pos + CVector2D(j * 60, i * 60));
+			m_img[mp_player->m_blockNo].Draw();
 			DrawRect();
 		}
 	}
@@ -310,7 +316,12 @@ void Block::Draw()
 
 void Block::Rotation()
 {
-	memcpy(m_block_data, block_data[m_type][m_rotcnt], sizeof(int) * 4 * 4);
+	memcpy(m_block_data, block_data[mp_player->m_blockNo][m_rotcnt], sizeof(int) * 4 * 4);
+}
+
+void Block::Reset(int dataindex)
+{
+	memcpy(m_block_data, block_data[mp_player->m_blockNo][m_rotcnt], sizeof(int) * 4 * 4);
 }
 
 void Block::Collision(Base* b)

@@ -42,7 +42,7 @@ void Title::Update()
 	{
 		m_sizecnt.y+=1;
 	}*/
-	if (PUSH(CInput::eButton5))
+	if (CInput::m_key_state[0][0])
 	{
 		SetKill();
 		Base::Add(new Game());
